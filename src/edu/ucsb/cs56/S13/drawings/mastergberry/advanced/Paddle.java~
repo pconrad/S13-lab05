@@ -1,0 +1,49 @@
+package edu.ucsb.cs56.S13.drawings.mastergberry.advanced;
+import java.awt.geom.GeneralPath; // combinations of lines and curves
+import java.awt.geom.AffineTransform; // translation, rotation, scale
+import java.awt.Shape; // general class for shapes
+
+// all imports below this line needed if you are implementing Shape
+import java.awt.geom.Point2D; 
+import java.awt.geom.Line2D; 
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.Ellipse2D;
+import java.awt.Rectangle;
+import java.awt.geom.PathIterator;
+import java.awt.geom.AffineTransform;
+
+import edu.ucsb.cs56.S13.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
+
+/**
+   A vector drawing of a paddle that implements
+   the Shape interface, and so can be drawn, as well as
+   rotated, scaled, etc.
+      
+   @author Adam Ehrlich
+   @version for CS56, Spring 13, UCSB
+   
+*/
+public class Paddle extends GeneralPathWrapper implements Shape
+{
+    /**
+       Constructor
+
+       @param paddleDiameter diameter of paddle
+       @param stickHeight height of handle
+       @param stickWidth width of handle
+     */
+    public Paddle(double paddleDiameter, double stickHeight, double stickWidth)
+    {
+		double centerY = paddleDiameter + stickHeight;
+		double centerX = paddleDiameter;
+		Ellipse2D.Double paddleCircle = new Ellipse2D.Double(centerX, centerY, paddleDiameter/2, paddleDiameter/2);
+		Rectangle2D.Double stick = new Rectangle2D.Double(centerX + paddleDiameter/4 - stickWidth/2, centerY + paddleDiameter/2, stickWidth, stickHeight);
+       
+        GeneralPath wholePaddle = this.get();
+        wholePaddle.append(paddleCircle, false);
+        wholePaddle.append(stick, false);
+        
+    }
+
+}

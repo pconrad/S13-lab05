@@ -5,8 +5,6 @@ import java.awt.Shape; // general class for shapes
 
 // all imports below this line needed if you are implementing Shape
 import java.awt.geom.Point2D; 
-import java.awt.geom.Rectangle2D;
-import java.awt.Rectangle;
 import java.awt.geom.PathIterator;
 import java.awt.geom.AffineTransform;
 
@@ -71,15 +69,15 @@ public class Ghost extends GeneralPathWrapper implements Shape
        
         // now we put the whole thing together ino a single path.
        
-        GeneralPath wholeCup = new GeneralPath ();
-        wholeCup.append(bottomSide, false);
-        wholeCup.append(leftSide, false);
-        wholeCup.append(rightSide, false);
+        GeneralPath wholeGhost = new GeneralPath ();
+        wholeGhost.append(bottomSide, false);
+        wholeGhost.append(leftSide, false);
+        wholeGhost.append(rightSide, false);
 
         // translate to the origin by subtracting the original upper left x and y
         // then translate to (x,y) by adding x and y
         
-        Shape s = ShapeTransforms.translatedCopyOf(wholeCup, -ORIG_ULX + x, -ORIG_ULY + y);
+        Shape s = ShapeTransforms.translatedCopyOf(wholeGhost, -ORIG_ULX + x, -ORIG_ULY + y);
  
 	// scale to correct height and width
         s =  ShapeTransforms.scaledCopyOf(s,

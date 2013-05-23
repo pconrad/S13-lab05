@@ -21,7 +21,7 @@ public class AllMyDrawings
 	PartyHat h1 = new PartyHat(150, 200, 70, 50);
 	g2.setColor(Color.RED); g2.draw(h1);
 	
-	// Smaller house, and shifted around
+	// Smaller hats, and shifted around
 
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
@@ -33,9 +33,7 @@ public class AllMyDrawings
 	
 	// bolder lines
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
-	
 
-	
 	Stroke orig=g2.getStroke();
 	g2.setStroke(thick);
 	g2.setColor(new Color(0x00A71A));

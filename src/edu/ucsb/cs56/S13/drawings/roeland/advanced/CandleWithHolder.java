@@ -37,9 +37,9 @@ Constructor
     public CandleWithHolder(double x, double y, double width, double height){
 
 	//construct the candle
-	super(x - width*.4, y + height *.5, width*.8, height*.25);
+	super(x - width*.35, y - height *.5, width*.7, height*.25);
 
-	//get the GeneralPath that we are going to apennd stuff to
+	//get the GeneralPath that we are going to append stuff to
 	GeneralPath gp = this.get();
 
 	Rectangle2D.Double holderTop = new Rectangle2D.Double(x - width*.45,
@@ -60,10 +60,10 @@ Constructor
 
 
 
-	GeneralPath candleHolder = this.get();
-	candleHolder.append(holderTop, false);
-	candleHolder.append(holderMiddle, false);
-	candleHolder.append(holderTop, false);
+	GeneralPath wholeCandle = this.get();
+	wholeCandle.append(holderTop, false);
+	wholeCandle.append(holderMiddle, false);
+	wholeCandle.append(holderBottom, false);
 
 
 

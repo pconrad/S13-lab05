@@ -56,27 +56,51 @@ public class MeasureWithNotes extends EmptyMeasure implements Shape
 	double noteHeight = height/4;
 	double stemLength = height/2;
 	
+	//draw ellipse for the first note
 	Ellipse2D.Double note1 =
-	    new Ellipse2D.Double(x + noteDistance - noteWidth/2, y - 2*numSpaceNote,noteWidth, noteHeight);
+	    new Ellipse2D.Double(x + noteDistance - noteWidth/2, 
+				 y - 2*numSpaceNote,
+				 noteWidth, 
+				 noteHeight);
+
+	//stem extending from first note
 	Line2D.Double stem1 = 
-	    new Line2D.Double(x + noteDistance + noteWidth/2, y - 2*numSpaceNote + noteHeight/2, x + noteDistance + noteWidth/2, y - 2* numSpaceNote + noteHeight/2 - stemLength);
-	
+	    new Line2D.Double(x + noteDistance + noteWidth/2, 
+			      y - 2*numSpaceNote + noteHeight/2, 
+			      x + noteDistance + noteWidth/2, 
+			      y - 2* numSpaceNote + noteHeight/2 - stemLength);
+	// ellipse for second note
 	Ellipse2D.Double note2 =
-	    new Ellipse2D.Double(x + 2 * noteDistance - noteWidth/2, y - 3*numSpaceNote, noteWidth, noteHeight);
-	
+	    new Ellipse2D.Double(x + 2 * noteDistance - noteWidth/2, 
+				 y - 3*numSpaceNote, 
+				 noteWidth, 
+				 noteHeight);
+	// stem for second note
 	Line2D.Double stem2 = 
-	    new Line2D.Double(x + 2*noteDistance + noteWidth/2, y - 3*numSpaceNote + noteHeight/2, x+2*noteDistance + noteWidth/2, y-3*numSpaceNote + noteHeight/2 - stemLength);
+	    new Line2D.Double(x + 2*noteDistance + noteWidth/2,
+			      y - 3*numSpaceNote + noteHeight/2, 
+			      x+2*noteDistance + noteWidth/2, 
+			      y-3*numSpaceNote + noteHeight/2 - stemLength);
 	
-	
+	// line connecting top of stem 1 and stem 2 to create two eighth notes
 	Line2D.Double eighthNoteStem = 
-	    new Line2D.Double(x + noteDistance + noteWidth/2, y -2*numSpaceNote + noteHeight/2 - stemLength, x + 2*noteDistance + noteWidth/2, y - 3*numSpaceNote + noteHeight/2 - stemLength);
+	    new Line2D.Double(x + noteDistance + noteWidth/2, 
+			      y -2*numSpaceNote + noteHeight/2 - stemLength, 
+			      x + 2*noteDistance + noteWidth/2,
+			      y - 3*numSpaceNote + noteHeight/2 - stemLength);
 	
-	
+	// ellipse for note 3 (quarter note)
 	Ellipse2D.Double note3 =
-	    new Ellipse2D.Double(x + 3 * noteDistance - noteWidth/2, y - numLineNote, noteWidth, noteHeight);
-	
+	    new Ellipse2D.Double(x + 3 * noteDistance - noteWidth/2, 
+				 y - numLineNote,
+				 noteWidth, 
+				 noteHeight);
+	// stem for note 3
 	Line2D.Double stem3 = 
-	    new Line2D.Double(x + 3* noteDistance + noteWidth/2, y - numLineNote + noteHeight/2, x + 3*noteDistance + noteWidth/2, y - numLineNote + noteHeight/2 - stemLength);
+	    new Line2D.Double(x + 3* noteDistance + noteWidth/2, 
+			      y - numLineNote + noteHeight/2, 
+			      x + 3*noteDistance + noteWidth/2, 
+			      y - numLineNote + noteHeight/2 - stemLength);
 	
 	// add the notes to the measure
 	// second parameter of append is a boolean to control whether or not to turn an initial moveTo segment into a lineTo segment to connect the new geometry to the existing path.

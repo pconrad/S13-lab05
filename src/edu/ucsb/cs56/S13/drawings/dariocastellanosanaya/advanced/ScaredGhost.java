@@ -35,15 +35,25 @@ public class ScaredGhost extends Ghost implements Shape
 	// get the GeneralPath that we are going to append stuff to
         GeneralPath gp = this.get();
 
+	double eyeDiam = width / 7;
+	double lEyeTopLeftX = x + width * 2/7;
+	double rEyeTopLeftX = x + width * 4/7;
+	double EyeTopLeftY = y + height * 5/14;
+
+
 	// make the ghost's eyes
+	Ellipse2D.Double leftEye =
+	    new Ellipse2D.Double(lEyeTopLeftX, EyeTopLeftY, eyeDiam, eyeDiam);
+	Ellipse2D.Double rightEye =
+	    new Ellipse2D.Double(rEyeTopLeftX, EyeTopLeftY, eyeDiam, eyeDiam);
 
 	// make the ghost's mouth
 
         // add the features to the ghost
        
         GeneralPath wholeGhost = this.get();
-	//        wholeGhost.append(leftEye, false);
-        //wholeGhost.append(rightEye, false);
+        wholeGhost.append(leftEye, false);
+        wholeGhost.append(rightEye, false);
         //wholeGhost.append(mouth, false); 
     }
 

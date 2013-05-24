@@ -42,7 +42,7 @@ public class AllMyDrawings
 	ghost2 = ShapeTransforms.translatedCopyOf(ghost2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(ghost2);
 	
-	// Here's a house that's 4x as big (2x the original)
+	// Here's a ghost that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
 	ghost2 = ShapeTransforms.scaledCopyOfLL(ghost2,4,4);
 	ghost2 = ShapeTransforms.translatedCopyOf(ghost2,150,0);
@@ -59,13 +59,13 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(ghost2); 
 	
-	// Draw two houses with Windows
+	// Draw two scared ghosts
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	ScaredGhost sg1 = new ScaredGhost(50,350,40,40);
+	ScaredGhost sg2 = new ScaredGhost(150,50,200,200);
 	
-	g2.draw(hw1);
-	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
+	g2.draw(sg1);
+	g2.setColor(new Color(0x8F00FF)); g2.draw(sg2);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	

@@ -1,0 +1,35 @@
+package edu.ucsb.cs56.S13.drawings.spencerpao.advanced;
+import java.awt.geom.GeneralPath; // combinations of lines and curves
+import java.awt.geom.AffineTransform; // translation, rotation, scale
+import java.awt.Shape; // general class for shapes
+
+// all imports below this line needed if you are implementing Shape
+import java.awt.geom.Point2D; 
+import java.awt.geom.Line2D; 
+import java.awt.geom.Rectangle2D;
+import java.awt.Rectangle;
+import java.awt.geom.PathIterator;
+import java.awt.geom.AffineTransform;
+
+import edu.ucsb.cs56.S13.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
+/**
+   A lightsaber turned on (with blade)
+      
+   @author Spencer Pao 
+   @version for CS56, s13, UCSB
+   
+*/
+public class LSWithBlade extends LS implements Shape
+{
+    public LSWithBlade(double x, double y, double width, double height)
+    {
+	super( x , y , width , height );
+
+	double bladeWidth = .4 * width;
+	double bladeHeight= 4  * height;
+	Rectangle2D.Double blade      = new Rectangle2D.Double( x , y , bladeWidth , bladeHeight );
+	GeneralPath        wholeSaber = this.get();
+	wholeSaber.append(blade, false);
+    }
+}

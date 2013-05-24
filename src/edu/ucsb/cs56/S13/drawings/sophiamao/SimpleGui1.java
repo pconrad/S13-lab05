@@ -6,6 +6,7 @@ import javax.swing.*;
 
      @author Head First Java, 2nd Edition p. 355
      @author P. Conrad (who only typed it in and added the Javadoc comments)
+     @author Sophia Mao (who only changed the name and color of button)
      @author TODO: Add additional author here
      @version CS56, Spring 2013, UCSB
 */
@@ -19,7 +20,7 @@ public class SimpleGui1 {
     public static void main (String[] args) {
 	JFrame frame = new JFrame() ;
 	JButton button = new JButton("click me fool.") ;
-	java.awt.Color myColor = new java.awt.Color(204,255,153);
+	java.awt.Color myColor = new java.awt.Color(214,182,230);
 	button.setBackground(myColor);
 	button.setOpaque(true);
 	frame. setDefaultCloseOperation(JFrame. EXIT_ON_CLOSE) ;

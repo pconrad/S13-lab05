@@ -24,16 +24,18 @@ public class Ghost extends GeneralPathWrapper implements Shape
     
     /**
      * Constructor for objects of class Ghost
+     * @param x the x coordinate of the top left corner of the ghost
+     * @param y the y coordinate of the top left corner of the ghost
+     * @param width the width of the ghost
+     * @param height the height of the ghost
      */
     public Ghost(double x, double y, double width, double height)
     {
     
-        // Specify the upper left corner, and the 
-        //  side length of the original points used to 
+        //  Specify the side length
+        //  of the original points used to 
         //  plot the *hard-coded* ghost
         
-        final double ORIG_ULX = 0.0; 
-        final double ORIG_ULY = 0.0; 
         final double ORIG_SIDE = 700.0; 
                 
         GeneralPath leftSide = new GeneralPath();
@@ -42,6 +44,8 @@ public class Ghost extends GeneralPathWrapper implements Shape
        
         leftSide.moveTo(0, 700);
         leftSide.lineTo(0, 300);
+        leftSide.lineTo(50, 150);
+        leftSide.lineTo(150, 50);
         leftSide.lineTo(250, 0);
 	leftSide.lineTo(350, 0);
 
@@ -63,7 +67,7 @@ public class Ghost extends GeneralPathWrapper implements Shape
         Shape rightSide = ShapeTransforms.horizontallyFlippedCopyOf(leftSide);
        
         // after flipping around the upper left hand corner of the
-        // bounding box, we move this over to the right by 400 pixels
+        // bounding box, we move this over to the right by 700 pixels
        
         rightSide = ShapeTransforms.translatedCopyOf(rightSide, 700.0, 0.0);
        
@@ -74,10 +78,9 @@ public class Ghost extends GeneralPathWrapper implements Shape
         wholeGhost.append(leftSide, false);
         wholeGhost.append(rightSide, false);
 
-        // translate to the origin by subtracting the original upper left x and y
-        // then translate to (x,y) by adding x and y
+        // translate to (x,y) by adding x and y
         
-        Shape s = ShapeTransforms.translatedCopyOf(wholeGhost, -ORIG_ULX + x, -ORIG_ULY + y);
+        Shape s = ShapeTransforms.translatedCopyOf(wholeGhost, x, y);
  
 	// scale to correct height and width
         s =  ShapeTransforms.scaledCopyOf(s,
@@ -85,7 +88,7 @@ public class Ghost extends GeneralPathWrapper implements Shape
 					  height/ORIG_SIDE) ;
 	 
 	// Use the GeneralPath constructor that takes a shape and returns
-	// it as a general path to set our instance variable cup
+	// it as a general path to set our instance variable ghost
         
 	this.set(new GeneralPath(s));
         

@@ -31,19 +31,22 @@ public class Speaker extends GeneralPathWrapper implements Shape
     /**
        Constructor
 
-       @param x x coord of upper left corner of house
-       @param y y coord of upper left corner of house
-       @param width width of the house
-       @param height of house (including first story and second story)
+       @param x x coord of upper left corner of speaker
+       @param y y coord of upper left corner of speaker
+       @param width width of the speaker
+       @param height height of speaker (this param sets minimum size of speaker)
      */
     public Speaker(double x, double y, double width, double height)
     {
     
-        // Rather than having to scale at the end, we can just
-        // draw things the right way to begin with, using the
-        // x, y, width and height.   If you haven't already
-        // hard coded a particular drawing, this may be an easier
-        // way.
+        // This shape autoscales to maintain a minimum speaker ratio
+        // The width should be grater than or equal to 0.4*height
+        // This ensures the speaker drivers do not extend out of the case
+        // It is understood that speakers with relatively small drivers are still possible
+
+        if(width < 0.4*height){
+          width = 0.4*height;
+        }
         
         double wubOuterRadius = 0.175*height;
         double wubInnerRadius = 0.0175*height;
@@ -60,7 +63,7 @@ public class Speaker extends GeneralPathWrapper implements Shape
                           width, height);
                           
         // Make the parts that goes WUBWUBWUB
-        // (They are the cirle parts)
+        // (They are the drivers: cirle parts)
         
         Circle wubOuterTop = new Circle(wubX, wubTopY, wubOuterRadius);
         Circle wubInnerTop = new Circle(wubX, wubTopY, wubInnerRadius);

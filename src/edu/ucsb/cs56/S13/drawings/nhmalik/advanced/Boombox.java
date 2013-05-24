@@ -19,15 +19,15 @@ import edu.ucsb.cs56.S13.drawings.nhmalik.advanced.Speaker;
 import edu.ucsb.cs56.S13.drawings.nhmalik.simple.Circle;
 
 /**
-   A boombox can change the world
-   You've got to know your limits with a boombox
-   This is a cautionary tale
-   A boombox is not a toy
-      
-   @author Noah Malik
-   @version for CS56, S13, UCSB, 05/24/2013
-   
-*/
+ *  A boombox can change the world
+ *  You've got to know your limits with a boombox
+ *  This is a cautionary tale
+ *  A boombox is not a toy
+ *     
+ *  @author Noah Malik
+ *  @version for CS56, S13, UCSB, 05/24/2013
+ *  
+ */
 public class Boombox extends Speaker implements Shape
 {
     /**

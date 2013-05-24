@@ -16,25 +16,25 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
 import edu.ucsb.cs56.S13.drawings.nhmalik.simple.Circle;
 
 /**
-   A vector drawing of a speaker that implements
-   the Shape interface, and so can be drawn, as well as
-   rotated, scaled, etc.
-
-   Modeled off of House.java
-
-   @author Noah Malik 
-   @version for CS56, Spring 13, UCSB
-   
-*/
+ * A vector drawing of a speaker that implements
+ *  the Shape interface, and so can be drawn, as well as
+ *  rotated, scaled, etc.
+ *
+ *  Modeled off of House.java
+ *
+ *  @author Noah Malik 
+ *  @version for CS56, Spring 13, UCSB
+ *  
+ */
 public class Speaker extends GeneralPathWrapper implements Shape
 {
     /**
-       Constructor
-
-       @param x x coord of upper left corner of speaker
-       @param y y coord of upper left corner of speaker
-       @param width width of the speaker
-       @param height height of speaker (this param sets minimum size of speaker)
+     *  Constructor
+     *
+     *  @param x x coord of upper left corner of speaker
+     *  @param y y coord of upper left corner of speaker
+     *  @param width width of the speaker
+     *  @param height height of speaker (this param sets minimum size of speaker)
      */
     public Speaker(double x, double y, double width, double height)
     {

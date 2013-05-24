@@ -42,12 +42,12 @@ public class AllMyDrawings
 	Shape candle2  = ShapeTransforms.scaledCopyOfLL(candle1,0.5,0.5);
 	candle2 = ShapeTransforms.translatedCopyOf(candle2,130,0);
 	g2.setColor(Color.GREEN);
-	g2.draw(h2);
+	g2.draw(candle2);
 	
 	// Here's a candle that's 8x as big (4x the original)
 	// and moved over 250 more pixels to right.
 	candle2 = ShapeTransforms.scaledCopyOfLL(candle2,8,8);
-	candle22 = ShapeTransforms.translatedCopyOf(candle2,250,0);
+	candle2 = ShapeTransforms.translatedCopyOf(candle2,250,0);
 	
 	// We'll draw this with a thicker stroke
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
@@ -157,7 +157,7 @@ public class AllMyDrawings
 
        //Draw some candles with holders
 
-       CancleWithHolder ch1 = new CandleWithHolder(100, 300, 50, 50);
+       CandleWithHolder ch1 = new CandleWithHolder(100, 300, 50, 50);
        CandleWithHolder ch2 = new CandleWithHolder(200,300, 200, 200);
 
        g2.setColor(Color.PINK); g2.draw(ch1);

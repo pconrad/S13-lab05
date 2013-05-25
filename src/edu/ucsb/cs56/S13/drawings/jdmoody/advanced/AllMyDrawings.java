@@ -32,9 +32,12 @@ public class AllMyDrawings
     public static void drawPicture1(Graphics2D g2) {
 	
 	Stroke orig=g2.getStroke();	
+	UFOWithTractorBeam hugeBeam = new UFOWithTractorBeam(100, 250, 400, 100);
+	g2.setColor(Color.RED); g2.draw(hugeBeam);
+	
 	// We'll draw this with a thicker stroke
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
-	House h1 = new House(200,250,50,75);
+	House h1 = new House(370,300,50,75);
 	g2.setStroke(thick);
 	g2.setColor(Color.BLUE); g2.draw(h1);
 	
@@ -52,9 +55,13 @@ public class AllMyDrawings
      */
     public static void drawPicture2(Graphics2D g2) {
 
+	UFO tiny = new UFO(200, 400, 20, 5);
+	UFOWithTractorBeam mediumBeam = new UFOWithTractorBeam(5,200,300,75);
+	UFOWithTractorBeam smallBeam = new UFOWithTractorBeam(350,200,200,50);
 	
 	House h1 = new House(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
+	g2.setColor(Color.RED); g2.draw(mediumBeam);
 	
 	// Make a black house that's half the size, 
 	// and moved over 150 pixels in x direction
@@ -86,17 +93,24 @@ public class AllMyDrawings
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); 
+	
+	Shape noBeam = ShapeTransforms.scaledCopyOfLL(tiny,5,5);
+	noBeam = ShapeTransforms.translatedCopyOf(noBeam,100,100);
+	g2.draw(noBeam);
 
 	// Rotate the second house 45 degrees around its center.
-	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
-
-	g2.draw(hw3);
+	Shape tinyRotated = ShapeTransforms.rotatedCopyOf(tiny, Math.PI/4.0);
+	Shape smallBeamRotated = ShapeTransforms.rotatedCopyOf(smallBeam, Math.PI/3.0);
+	
+	g2.draw(tinyRotated);
+	g2.setColor(Color.BLUE);
+	g2.draw(smallBeamRotated);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of UFOs and a few houses by Phill Conrad", 20,20);
+	g2.drawString("A bunch of UFOs and houses by Jonathan Moody", 20,20);
     }
   
     /** Draw a different picture with a few UFOs.
@@ -111,14 +125,14 @@ public class AllMyDrawings
 	
 	// Draw some UFOs.
 	
-       UFO large = new UFO(10,200,400,100);
+       UFOWithTractorBeam largeUFO = new UFOWithTractorBeam(10,200,400,100);
        UFO smallUFO = new UFO(200,105,200,50);
 	   UFO mediumUFO = new UFO(250,300,300,75);
 	   
 	   UFOWithTractorBeam mediumBeam = new UFOWithTractorBeam(5,375,300,75);
-	   UFOWithTractorBeam smallBeam = new UFOWithTractorBeam(300,450,200,50);
+	   UFOWithTractorBeam smallBeam = new UFOWithTractorBeam(300,425,200,50);
        
-       g2.setColor(Color.RED);     g2.draw(large);
+       g2.setColor(Color.RED);     g2.draw(largeUFO);
        g2.setColor(Color.BLUE);   g2.draw(smallUFO);
 	   g2.setColor(Color.BLUE); g2.draw(smallBeam);
 	   g2.setColor(Color.BLACK); g2.draw(mediumUFO);

@@ -36,7 +36,7 @@ public class UFOWithTractorBeam extends UFO implements Shape
 		GeneralPath lb = new GeneralPath();
 		
 		double leftBeamX = x + 0.55 * width;
-		double leftBeamY = y + 1.55 * height;
+		double leftBeamY = y - 3000/height;
 		lb.moveTo(leftBeamX, leftBeamY);
 		lb.lineTo(leftBeamX - width * 0.1, leftBeamY + height);
 		

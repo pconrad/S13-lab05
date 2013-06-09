@@ -1,0 +1,95 @@
+package edu.ucsb.cs56.S13.drawings.mastergberry.advanced;
+
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;  // single lines
+import java.awt.geom.Ellipse2D;  // ellipses and circles
+import java.awt.geom.Rectangle2D; // for the bounding box
+import java.awt.Rectangle;  // squares and rectangles
+import java.awt.geom.GeneralPath; // combinations of lines and curves
+import java.awt.geom.AffineTransform; // translation, rotation, scale
+import java.awt.Shape; // general class for shapes
+import java.awt.Color; // class for Colors
+import java.awt.Stroke;
+import java.awt.BasicStroke;
+
+
+import edu.ucsb.cs56.S13.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
+
+/**
+ * A class with static methods for drawing various pictures
+ * 
+ * @author Phill Conrad 
+ * @author Adam Ehrlich
+ * @version for CS10, lab06, Spring 2009
+ */
+
+
+public class AllMyDrawings
+{
+    /** Draw a picture of a paddle
+     */
+
+    public static void drawPicture1(Graphics2D g2) {
+
+	Paddle thickPaddle = new Paddle(100, 40, 20); 
+	
+	// We'll draw this with a thicker stroke
+	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
+	
+	// for hex colors, see (e.g.) http://en.wikipedia.org/wiki/List_of_colors
+	// #002FA7 is "International Klein Blue" according to Wikipedia
+	// In HTML we use #, but in Java (and C/C++) its 0x
+	
+	Stroke orig=g2.getStroke();
+	g2.setStroke(thick);
+	g2.setColor(new Color(0x002FA7)); 
+	g2.draw(thickPaddle); 
+
+	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
+	
+	g2.setStroke(orig);
+	g2.setColor(Color.BLACK); 
+	g2.drawString("A thick paddle by Adam Ehrlich", 20,20);
+    }
+
+
+    /** Draw a picture with one paddle and one paddleball
+     */
+    public static void drawPicture2(Graphics2D g2) {
+
+	// A paddle and a paddleball 
+	g2.drawString("A paddle and a paddleball by Adam Ehrlich", 20,20);
+
+	Paddle paddle = new Paddle(200, 20, 10);
+	g2.draw(paddle);
+	
+	// Draw a small baddlepall
+	PaddleBall small = new PaddleBall(100, 40, 20, 30);
+	g2.setColor(Color.RED);
+	g2.draw(small);
+    }
+  
+    /** Draw a picture of a paddleball
+     */
+
+    public static void drawPicture3(Graphics2D g2) {
+	
+	// label the drawing
+	
+	g2.drawString("A small PaddleBall by Adam Ehrlich", 20,20);
+
+	
+	// Draw a small baddlepall
+
+	PaddleBall small = new PaddleBall(100, 40, 20, 30);
+	g2.setColor(Color.RED);
+	g2.draw(small);
+	
+       
+       
+       
+    }
+    
+
+}
